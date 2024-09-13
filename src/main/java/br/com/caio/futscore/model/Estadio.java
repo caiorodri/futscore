@@ -11,12 +11,14 @@ import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
 @Entity
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
+@EqualsAndHashCode(of = "id")
 public class Estadio implements Serializable {
 
 	private static final long serialVersionUID = -4968284380885635045L;
@@ -41,4 +43,10 @@ public class Estadio implements Serializable {
 		this.capacidade = estadioDTO.getCapacidade();
 
 	}
+
+	public Estadio(Long id) {
+		this.id = id;
+	}
+	
+	
 }

@@ -11,12 +11,14 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
 @Data
 @Entity
 @NoArgsConstructor
 @AllArgsConstructor
+@EqualsAndHashCode(of = "id")
 @Table(name = "continente")
 public class Continente implements Serializable {
 
@@ -35,6 +37,12 @@ public class Continente implements Serializable {
         this.nome = continenteDTO.getNome();
 
     }
+
+	public Continente(Integer id) {
+		this.id = id;
+	}
+    
+    
 
 }
 

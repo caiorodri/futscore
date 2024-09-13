@@ -13,6 +13,7 @@ import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
 @Entity
@@ -20,6 +21,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Table(name = "pais")
+@EqualsAndHashCode(of = "id")
 public class Pais implements Serializable {
 
 	private static final long serialVersionUID = -1540071270749097194L;
@@ -48,4 +50,9 @@ public class Pais implements Serializable {
 
 	}
 
+	public Pais(Integer id) {
+		this.id = id;
+	}
+
+	
 }

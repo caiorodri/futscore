@@ -12,12 +12,14 @@ import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
 @Entity
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
+@EqualsAndHashCode(of = "id")
 public class Partida implements Serializable {
 
 	private static final long serialVersionUID = -2214448128018278776L;
@@ -64,5 +66,11 @@ public class Partida implements Serializable {
 		this.quantidadeTorcedores = partidaDTO.getQuantidadeTorcedores();
 
 	}
+
+	public Partida(Long id) {
+		this.id = id;
+	}
+	
+	
 
 }

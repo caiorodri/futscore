@@ -14,6 +14,7 @@ import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
 
@@ -21,6 +22,7 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
+@EqualsAndHashCode(of = "id")
 @Table(name = "clube")
 public class Clube implements Serializable {
 
@@ -52,5 +54,12 @@ public class Clube implements Serializable {
 		this.imagem = clubeDTO.getImagem();
 		
 	}
+
+	public Clube(Long id) {
+		super();
+		this.id = id;
+	}
+	
+	
 	
 }

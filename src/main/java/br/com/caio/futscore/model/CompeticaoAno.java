@@ -13,11 +13,13 @@ import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
 @Entity
 @Data
 @NoArgsConstructor
+@EqualsAndHashCode(of = "id")
 @AllArgsConstructor
 public class CompeticaoAno implements Serializable {
 
@@ -54,4 +56,10 @@ public class CompeticaoAno implements Serializable {
 	    this.pontuacaoEmpate = competicaoAnoDTO.getPontuacaoEmpate();
 	    this.pontuacaoDerrota = competicaoAnoDTO.getPontuacaoDerrota();
 	}
+
+	public CompeticaoAno(Long id) {
+		this.id = id;
+	}
+	
+	
 }

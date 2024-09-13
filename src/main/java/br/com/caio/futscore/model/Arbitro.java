@@ -14,12 +14,14 @@ import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
 @Entity
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
+@EqualsAndHashCode(of = "id")
 @Table(name = "arbitro")
 public class Arbitro implements Serializable {
 
@@ -56,4 +58,10 @@ public class Arbitro implements Serializable {
 		this.cartoesVermelho = arbitroDTO.getCartoesVermelho();
 
 	}
+
+	public Arbitro(Long id) {
+		this.id = id;
+	}
+	
+	
 }

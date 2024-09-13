@@ -11,12 +11,14 @@ import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
 @Entity
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
+@EqualsAndHashCode(of = "id")
 public class Competicao implements Serializable {
 
 	private static final long serialVersionUID = 7956468628029288839L;
@@ -44,6 +46,10 @@ public class Competicao implements Serializable {
 		this.competicaoTipo = new CompeticaoTipo(competicaoDTO.getCompeticaoTipo());
 		this.pais = new Pais(competicaoDTO.getPais());
 		this.imagem = competicaoDTO.getImagem();
+	}
+
+	public Competicao(Long id) {
+		this.id = id;
 	}
 	
 	

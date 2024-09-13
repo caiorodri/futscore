@@ -13,12 +13,14 @@ import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
 @Entity
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
+@EqualsAndHashCode(of = "id")
 @Table(name = "artilharia")
 public class Artilharia implements Serializable {
 
@@ -56,5 +58,10 @@ public class Artilharia implements Serializable {
 		this.assistencias = artilhariaDTO.getAssistencias();
 		
 	}
+
+	public Artilharia(Long id) {
+		this.id = id;
+	}
+	
 	
 }

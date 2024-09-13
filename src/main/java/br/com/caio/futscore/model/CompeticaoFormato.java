@@ -11,12 +11,14 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
 @Entity
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
+@EqualsAndHashCode(of = "id")
 @Table(name = "competicao_formato")
 public class CompeticaoFormato implements Serializable {
 
@@ -35,5 +37,11 @@ public class CompeticaoFormato implements Serializable {
 		this.nome = competicaoFormatoDTO.getNome();
 
 	}
+
+	public CompeticaoFormato(Integer id) {
+		this.id = id;
+	}
+	
+	
 
 }
