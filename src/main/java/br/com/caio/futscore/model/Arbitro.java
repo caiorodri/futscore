@@ -43,12 +43,6 @@ public class Arbitro implements Serializable {
 	@Column(name = "cartoesAmarelo")
 	private int cartoesAmarelo;
 
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "arbitro")
-	private List<Partida> partidasRealizadas;
-
-//	@OneToMany
-//	private List<Partida> proximasPartidas;
-
 	public Arbitro(ArbitroDTO arbitroDTO) {
 
 		this.id = arbitroDTO.getId();
