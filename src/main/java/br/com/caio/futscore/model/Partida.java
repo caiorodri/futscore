@@ -49,10 +49,10 @@ public class Partida implements Serializable {
 	private Arbitro arbitro;
 
 	@Column(name = "mando_campo_neutro")
-	private boolean mandoCampoNeutro;
+	private Boolean mandoCampoNeutro;
 
 	@Column(name = "quantidade_torcedores")
-	private int quantidadeTorcedores;
+	private Integer quantidadeTorcedores;
 
 	public Partida(PartidaDTO partidaDTO) {
 
@@ -62,7 +62,7 @@ public class Partida implements Serializable {
 		this.clubeVisitante = new Clube(partidaDTO.getClubeVisitante());
 		this.estadio = new Estadio(partidaDTO.getEstadio());
 		this.arbitro = new Arbitro(partidaDTO.getArbitro());
-		this.mandoCampoNeutro = partidaDTO.isMandoCampoNeutro();
+		this.mandoCampoNeutro = partidaDTO.getMandoCampoNeutro();
 		this.quantidadeTorcedores = partidaDTO.getQuantidadeTorcedores();
 
 	}

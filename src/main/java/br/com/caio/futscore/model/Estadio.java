@@ -33,7 +33,7 @@ public class Estadio implements Serializable {
 	@JoinColumn(name = "id_pais")
 	private Pais pais;
 
-	private int capacidade;
+	private Integer capacidade;
 
 	public Estadio(EstadioDTO estadioDTO) {
 

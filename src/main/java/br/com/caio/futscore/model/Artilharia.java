@@ -43,10 +43,10 @@ public class Artilharia implements Serializable {
 	private Clube clube;
 	
 	@Column(name = "gols")
-	private int gols;
+	private Integer gols;
 	
 	@Column(name = "assistencias")
-	private int assistencias;
+	private Integer assistencias;
 	
 	public Artilharia(ArtilhariaDTO artilhariaDTO) {
 		

@@ -39,25 +39,25 @@ public class Campeonato implements Serializable {
 	private Clube clube;
 	
 	@Column(name = "partidas")
-	private int partidas;
+	private Integer partidas;
 
 	@Column(name = "vitorias")
-	private int vitorias;
+	private Integer vitorias;
 
 	@Column(name = "empates")
-	private int empates;
+	private Integer empates;
 
 	@Column(name = "derrotas")
-	private int derrotas;
+	private Integer derrotas;
 
 	@Column(name = "gols_feito")
-	private int golsFeitos;
+	private Integer golsFeitos;
 
 	@Column(name = "gols_sofrido")
-	private int golsSofridos;
+	private Integer golsSofridos;
 	
 	@Column(name = "punicao")
-	private int punicao;
+	private Integer punicao;
 	
 	public Campeonato(CampeonatoDTO campeonatoDTO) {
 		

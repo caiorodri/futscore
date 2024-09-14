@@ -1,7 +1,6 @@
 package br.com.caio.futscore.model;
 
 import java.io.Serializable;
-import java.time.Year;
 
 import br.com.caio.futscore.dto.CompeticaoAnoDTO;
 import jakarta.persistence.Column;
@@ -34,18 +33,18 @@ public class CompeticaoAno implements Serializable {
 	private CompeticaoFormato formatoCompeticao;
 	
 	@Column(name = "quantidade_clubes")
-	private int quantidadeClubes;
+	private Integer quantidadeClubes;
 	
-	private Year ano;
+	private Integer ano;
 	
 	@Column(name = "pontuacao_vitoria")
-	private int pontuacaoVitoria;
+	private Integer pontuacaoVitoria;
 
 	@Column(name = "pontuacao_empate")
-	private int pontuacaoEmpate;
+	private Integer pontuacaoEmpate;
 
 	@Column(name = "pontuacao_derrota")
-	private int pontuacaoDerrota;
+	private Integer pontuacaoDerrota;
 
 	public CompeticaoAno(CompeticaoAnoDTO competicaoAnoDTO) {
 	    this.id = competicaoAnoDTO.getId();

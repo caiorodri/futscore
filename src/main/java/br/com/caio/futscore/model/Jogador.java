@@ -42,20 +42,20 @@ public class Jogador implements Serializable {
 	@Column(name = "data_nascimento")
 	private Date dataNascimento;
 
-	private int jogos;
+	private Integer jogos;
 
-	private int gols;
+	private Integer gols;
 
-	private int assistencias;
+	private Integer assistencias;
 
 	@Column(name = "cartoes_amarelo")
-	private int cartoesAmarelo;
+	private Integer cartoesAmarelo;
 
 	@Column(name = "cartoes_vermelho")
-	private int cartoesVermelho;
+	private Integer cartoesVermelho;
 
 	@Column(name = "valor_mercado")
-	private double valorMercado;
+	private Double valorMercado;
 
 	private String imagem;
 
