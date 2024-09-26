@@ -27,9 +27,6 @@ public class ArtilhariaDTO {
     public ArtilhariaDTO(Artilharia artilharia) {
 
         this.id = artilharia.getId();
-        this.campeonato = new CampeonatoDTO(artilharia.getCampeonato());
-        this.jogador = new JogadorDTO(artilharia.getJogador());
-        this.clube = new ClubeDTO(artilharia.getClube());
         this.gols = artilharia.getGols();
         this.assistencias = artilharia.getAssistencias();
     }

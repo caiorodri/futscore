@@ -1,5 +1,7 @@
 package br.com.caio.futscore.dto;
 
+import java.util.List;
+
 import br.com.caio.futscore.model.Arbitro;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -15,12 +17,18 @@ public class ArbitroDTO {
     private Long id;
 
     private String nome;
-
+    
     private Integer partidas;
 
     private Integer cartoesVermelho;
 
     private Integer cartoesAmarelo;
+    
+    private PaisDTO nacionalidade;
+    
+    private List<PartidaDTO> partidasRealizadas;
+    
+    private List<PartidaDTO> proximasPartidas;
 
     public ArbitroDTO(Arbitro arbitro) {
 
@@ -29,7 +37,7 @@ public class ArbitroDTO {
         this.partidas = arbitro.getPartidas();
         this.cartoesAmarelo = arbitro.getCartoesAmarelo();
         this.cartoesVermelho = arbitro.getCartoesVermelho();
-
+        
     }
 
 	public ArbitroDTO(Long id) {

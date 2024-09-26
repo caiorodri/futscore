@@ -1,6 +1,9 @@
 package br.com.caio.futscore.dto;
 
+import java.util.Date;
+
 import br.com.caio.futscore.model.Partida;
+import jakarta.persistence.Column;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -27,17 +30,24 @@ public class PartidaDTO {
 	private Boolean mandoCampoNeutro;
 
 	private Integer quantidadeTorcedores;
+	
+	private Integer golsClubeMandante;
+
+	private Integer golsClubeVisitante;
+	
+	private Date dataPartida;
+	
+	private Boolean partidaRealizada;
 
 	public PartidaDTO(Partida partida) {
 
 		this.id = partida.getId();
-		this.competicaoAno = new CompeticaoAnoDTO(partida.getCompeticaoAno());
-		this.clubeMandante = new ClubeDTO(partida.getClubeMandante());
-		this.clubeVisitante = new ClubeDTO(partida.getClubeVisitante());
-		this.estadio = new EstadioDTO(partida.getEstadio());
-		this.arbitro = new ArbitroDTO(partida.getArbitro());
 		this.mandoCampoNeutro = partida.getMandoCampoNeutro();
 		this.quantidadeTorcedores = partida.getQuantidadeTorcedores();
+		this.golsClubeMandante = partida.getGolsClubeMandante();
+		this.golsClubeVisitante = partida.getGolsClubeVisitante();
+		this.partidaRealizada = partida.getPartidaRealizada();
+		this.dataPartida = partida.getDataPartida();
 
 	}
 

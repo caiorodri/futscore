@@ -1,6 +1,7 @@
 package br.com.caio.futscore.dto;
 
 import br.com.caio.futscore.model.Competicao;
+import java.util.List;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -21,13 +22,13 @@ public class CompeticaoDTO {
 	private PaisDTO pais;
 
 	private String imagem;
+        
+    private List<CompeticaoAnoDTO> competicoesAno;
 
 	public CompeticaoDTO(Competicao competicao) {
 
 		this.id = competicao.getId();
 		this.nome = competicao.getNome();
-		this.competicaoTipo = new CompeticaoTipoDTO(competicao.getCompeticaoTipo());
-		this.pais = new PaisDTO(competicao.getPais());
 		this.imagem = competicao.getImagem();
 
 	}

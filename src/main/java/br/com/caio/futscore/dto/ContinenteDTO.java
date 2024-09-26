@@ -1,5 +1,7 @@
 package br.com.caio.futscore.dto;
 
+import java.util.List;
+
 import br.com.caio.futscore.model.Continente;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -15,6 +17,8 @@ public class ContinenteDTO {
     private Integer id;
 
     private String nome;
+    
+    private List<PaisDTO> paises;
 
     public ContinenteDTO(Continente continente) {
 

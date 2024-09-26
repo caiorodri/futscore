@@ -1,6 +1,7 @@
 package br.com.caio.futscore.dto;
 
 import br.com.caio.futscore.model.Pais;
+import java.util.List;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -19,12 +20,13 @@ public class PaisDTO {
     private ContinenteDTO continente;
 
     private String imagem;
+    
+    private List<CompeticaoDTO> competicoes;
 
     public PaisDTO(Pais pais) {
 
         this.id = pais.getId();
         this.nome = pais.getNome();
-        this.continente = new ContinenteDTO(pais.getContinente());
         this.imagem = pais.getImagem();
 
     }

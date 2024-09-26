@@ -35,8 +35,6 @@ public class CampeonatoDTO {
     public CampeonatoDTO(Campeonato campeonato) {
 
         this.id = campeonato.getId();
-        this.competicaoAno = new CompeticaoAnoDTO(campeonato.getCompeticaoAno());
-        this.clube = new ClubeDTO(campeonato.getClube());
         this.partidas = campeonato.getPartidas();
         this.vitorias = campeonato.getVitorias();
         this.empates = campeonato.getEmpates();

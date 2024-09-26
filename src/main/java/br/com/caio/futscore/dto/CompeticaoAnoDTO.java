@@ -1,5 +1,7 @@
 package br.com.caio.futscore.dto;
 
+import java.util.List;
+
 import br.com.caio.futscore.model.CompeticaoAno;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -14,6 +16,8 @@ public class CompeticaoAnoDTO {
 
     private Long id;
 
+    private CompeticaoDTO competicao;
+    
     private CompeticaoFormatoDTO formatoCompeticao;
 
     private Integer quantidadeClubes;
@@ -26,10 +30,11 @@ public class CompeticaoAnoDTO {
 
     private Integer pontuacaoDerrota;
 
+    private List<PartidaDTO> partidas;
+    
     public CompeticaoAnoDTO(CompeticaoAno competicaoAno) {
 
         this.id = competicaoAno.getId();	
-        this.formatoCompeticao = new CompeticaoFormatoDTO(competicaoAno.getFormatoCompeticao());
         this.quantidadeClubes = competicaoAno.getQuantidadeClubes();
         this.ano = competicaoAno.getAno();
         this.pontuacaoVitoria = competicaoAno.getPontuacaoVitoria();

@@ -1,6 +1,7 @@
 package br.com.caio.futscore.dto;
 
 import java.util.Date;
+import java.util.List;
 
 import br.com.caio.futscore.model.Clube;
 import lombok.AllArgsConstructor;
@@ -23,12 +24,17 @@ public class ClubeDTO {
     private Date anoFundacao;
 
     private String imagem;
+    
+    private List<JogadorDTO> jogadores;
+    
+    private List<PartidaDTO> partidasRealizadas;
+
+    private List<PartidaDTO> proximasPartidas;
 
     public ClubeDTO(Clube clube) {
 
         this.id = clube.getId();
         this.nome = clube.getNome();
-        this.pais = new PaisDTO(clube.getPais());
         this.anoFundacao = clube.getAnoFundacao();
         this.imagem = clube.getImagem();
 
