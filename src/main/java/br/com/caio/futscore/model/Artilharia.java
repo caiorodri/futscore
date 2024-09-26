@@ -51,9 +51,6 @@ public class Artilharia implements Serializable {
 	public Artilharia(ArtilhariaDTO artilhariaDTO) {
 		
 		this.id = artilhariaDTO.getId();
-		this.campeonato = new Campeonato(artilhariaDTO.getCampeonato());
-		this.jogador = new Jogador(artilhariaDTO.getJogador());
-		this.clube = new Clube(artilhariaDTO.getClube());
 		this.gols = artilhariaDTO.getGols();
 		this.assistencias = artilhariaDTO.getAssistencias();
 		

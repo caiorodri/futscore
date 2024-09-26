@@ -49,7 +49,6 @@ public class Clube implements Serializable {
 		
 		this.id = clubeDTO.getId();
 		this.nome = clubeDTO.getNome();
-		this.pais = new Pais(clubeDTO.getPais());
 		this.anoFundacao = clubeDTO.getAnoFundacao();
 		this.imagem = clubeDTO.getImagem();
 		

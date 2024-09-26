@@ -39,7 +39,6 @@ public class Estadio implements Serializable {
 
 		this.id = estadioDTO.getId();
 		this.nome = estadioDTO.getNome();
-		this.pais = new Pais(estadioDTO.getPais());
 		this.capacidade = estadioDTO.getCapacidade();
 
 	}

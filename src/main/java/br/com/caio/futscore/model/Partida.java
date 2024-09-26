@@ -1,6 +1,7 @@
 package br.com.caio.futscore.model;
 
 import java.io.Serializable;
+import java.util.Date;
 
 import br.com.caio.futscore.dto.PartidaDTO;
 import jakarta.persistence.Column;
@@ -53,17 +54,28 @@ public class Partida implements Serializable {
 
 	@Column(name = "quantidade_torcedores")
 	private Integer quantidadeTorcedores;
+	
+	@Column(name = "gols_clube_mandante")
+	private Integer golsClubeMandante;
 
+	@Column(name = "gols_clube_visitante")
+	private Integer golsClubeVisitante;
+	
+	@Column(name = "data_partida")
+	private Date dataPartida;
+	
+	@Column(name = "partida_realizada")
+	private Boolean partidaRealizada;
+	
 	public Partida(PartidaDTO partidaDTO) {
 
 		this.id = partidaDTO.getId();
-		this.competicaoAno = new CompeticaoAno(partidaDTO.getCompeticaoAno());
-		this.clubeMandante = new Clube(partidaDTO.getClubeMandante());
-		this.clubeVisitante = new Clube(partidaDTO.getClubeVisitante());
-		this.estadio = new Estadio(partidaDTO.getEstadio());
-		this.arbitro = new Arbitro(partidaDTO.getArbitro());
 		this.mandoCampoNeutro = partidaDTO.getMandoCampoNeutro();
 		this.quantidadeTorcedores = partidaDTO.getQuantidadeTorcedores();
+		this.golsClubeMandante = partidaDTO.getGolsClubeMandante();
+		this.golsClubeVisitante = partidaDTO.getGolsClubeVisitante();
+		this.partidaRealizada = partidaDTO.getPartidaRealizada();
+		this.dataPartida = partidaDTO.getDataPartida();
 
 	}
 

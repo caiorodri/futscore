@@ -3,6 +3,7 @@ package br.com.caio.futscore.model;
 import java.io.Serializable;
 
 import br.com.caio.futscore.dto.CompeticaoDTO;
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -25,8 +26,10 @@ public class Competicao implements Serializable {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "id")
 	private Long id;
 	
+	@Column(name = "nome")
 	private String nome;
 	
 	@ManyToOne
@@ -37,14 +40,13 @@ public class Competicao implements Serializable {
 	@JoinColumn(name = "pais_id")
 	private Pais pais;
 	
+	@Column(name = "imagem")
 	private String imagem;
 
 	public Competicao(CompeticaoDTO competicaoDTO) {
 
 		this.id = competicaoDTO.getId();
 		this.nome = competicaoDTO.getNome();
-		this.competicaoTipo = new CompeticaoTipo(competicaoDTO.getCompeticaoTipo());
-		this.pais = new Pais(competicaoDTO.getPais());
 		this.imagem = competicaoDTO.getImagem();
 	}
 

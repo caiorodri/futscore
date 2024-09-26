@@ -45,7 +45,6 @@ public class Pais implements Serializable {
 
 		this.id = paisDTO.getId();
 		this.nome = paisDTO.getNome();
-		this.continente = new Continente(paisDTO.getContinente());
 		this.imagem = paisDTO.getImagem();
 
 	}

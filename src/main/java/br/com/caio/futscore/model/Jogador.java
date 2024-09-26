@@ -36,12 +36,16 @@ public class Jogador implements Serializable {
 	private Clube clubeAtual;
 
 	@ManyToOne
-	@JoinColumn(name = "nacionalidade")
+	@JoinColumn(name = "pais_id")
 	private Pais nacionalidade;
 
 	@Column(name = "data_nascimento")
 	private Date dataNascimento;
 
+	@ManyToOne
+	@JoinColumn(name = "posicao_id")
+	private Posicao posicao;
+	
 	private Integer jogos;
 
 	private Integer gols;
@@ -63,8 +67,6 @@ public class Jogador implements Serializable {
 
 		this.id = jogadorDTO.getId();
 		this.nome = jogadorDTO.getNome();
-		this.clubeAtual = new Clube(jogadorDTO.getClubeAtual());
-		this.nacionalidade = new Pais(jogadorDTO.getNacionalidade());
 		this.dataNascimento = jogadorDTO.getDataNascimento();
 		this.jogos = jogadorDTO.getJogos();
 		this.gols = jogadorDTO.getGols();

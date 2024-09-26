@@ -62,8 +62,6 @@ public class Campeonato implements Serializable {
 	public Campeonato(CampeonatoDTO campeonatoDTO) {
 		
 		this.id = campeonatoDTO.getId();
-		this.competicaoAno = new CompeticaoAno(campeonatoDTO.getCompeticaoAno());
-		this.clube = new Clube(campeonatoDTO.getClube());
 		this.partidas = campeonatoDTO.getPartidas();
 		this.vitorias = campeonatoDTO.getVitorias();
 		this.empates = campeonatoDTO.getEmpates();

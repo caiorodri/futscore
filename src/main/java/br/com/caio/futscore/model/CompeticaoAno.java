@@ -26,7 +26,12 @@ public class CompeticaoAno implements Serializable {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "id")
 	private Long id;
+	
+	@ManyToOne
+	@JoinColumn(name = "competicao_id")
+	private Competicao competicao;
 	
 	@ManyToOne
 	@JoinColumn(name = "formato_id")
@@ -35,6 +40,7 @@ public class CompeticaoAno implements Serializable {
 	@Column(name = "quantidade_clubes")
 	private Integer quantidadeClubes;
 	
+	@Column(name = "ano")
 	private Integer ano;
 	
 	@Column(name = "pontuacao_vitoria")
@@ -48,7 +54,6 @@ public class CompeticaoAno implements Serializable {
 
 	public CompeticaoAno(CompeticaoAnoDTO competicaoAnoDTO) {
 	    this.id = competicaoAnoDTO.getId();
-	    this.formatoCompeticao = new CompeticaoFormato(competicaoAnoDTO.getFormatoCompeticao());
 	    this.quantidadeClubes = competicaoAnoDTO.getQuantidadeClubes();
 	    this.ano = competicaoAnoDTO.getAno();
 	    this.pontuacaoVitoria = competicaoAnoDTO.getPontuacaoVitoria();
