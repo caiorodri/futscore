@@ -31,12 +31,34 @@ CREATE TABLE IF NOT EXISTS clube(
 	
 );
 
+CREATE TABLE posicao(
+
+	id INT PRIMARY KEY AUTO_INCREMENT,
+    nome VARCHAR(20) NOT NULL,
+	sigla VARCHAR(3) NOT NULL
+    
+);
+
+INSERT INTO posicao(nome, sigla) VALUES
+('Goleiro', 'GOL'),
+('Zagueiro', 'ZAG'),
+('Lateral Direito', 'LD'),
+('Lateral Esquerdo', 'LE'),
+('Volante', 'VOL'),
+('Meio Campo', 'MC'),
+('Meio Atacante', 'MA'),
+('Ponta Esquerda', 'PE'),
+('Ponta Direita', 'PD'),
+('Segundo Atacante', 'SA'),
+('Atacante', 'ATA');
+
 CREATE TABLE jogador (
 	
     id BIGINT PRIMARY KEY AUTO_INCREMENT,
     nome VARCHAR(40) NOT NULL,
     clube_atual_id BIGINT,
-    nacionalidade INT NOT NULL,
+    pais_id INT NOT NULL,
+    posicao_id INT NOT NULL,
     data_nascimento DATE,
     jogos INT DEFAULT 0,
     gols INT DEFAULT 0,
@@ -46,7 +68,17 @@ CREATE TABLE jogador (
     valor_mercado DOUBLE DEFAULT 0,
     imagem BLOB,
 	CONSTRAINT fk_jogador_clube FOREIGN KEY (clube_atual_id) REFERENCES clube(id),
-	CONSTRAINT fk_jogador_pais FOREIGN KEY (nacionalidade) REFERENCES pais(id)
+	CONSTRAINT fk_jogador_pais FOREIGN KEY (pais_id) REFERENCES pais(id)
+);
+
+CREATE TABLE posicao_secundaria(
+
+	id BIGINT PRIMARY KEY AUTO_INCREMENT,
+    id_posicao INT NOT NULL,
+    id_jogador BIGINT NOT NULL,
+    CONSTRAINT fk_posicao_secundaria_posicao FOREIGN KEY (id_posicao) REFERENCES posicao(id),
+    CONSTRAINT fk_posicao_secundaria_jogador FOREIGN KEY (id_jogador) REFERENCES jogador(id)
+
 );
 
 CREATE TABLE competicao_tipo(
@@ -93,7 +125,6 @@ CREATE TABLE competicao_ano(
 	CONSTRAINT fk_competicao_ano_competicao FOREIGN KEY (competicao_id) REFERENCES competicao(id)
 );
 
-
 CREATE TABLE IF NOT EXISTS campeonato(
 	
     id BIGINT PRIMARY KEY AUTO_INCREMENT,
@@ -110,7 +141,6 @@ CREATE TABLE IF NOT EXISTS campeonato(
 	CONSTRAINT fk_campeonato_clube FOREIGN KEY (clube_id) REFERENCES clube(id)
 );
 
-
 CREATE TABLE jogador_clube_passagem(
 	
     id BIGINT PRIMARY KEY AUTO_INCREMENT,
@@ -123,7 +153,6 @@ CREATE TABLE jogador_clube_passagem(
 	CONSTRAINT fk_jogador_clube_passagem_clube FOREIGN KEY (clube_id) REFERENCES clube(id)
 
 );
-
 
 CREATE TABLE jogador_campeonato_passagem(
 
@@ -159,10 +188,12 @@ CREATE TABLE artilharia(
 CREATE TABLE arbitro(
 
 	id BIGINT PRIMARY KEY AUTO_INCREMENT,
+    id_pais INT NOT NULL,
     nome VARCHAR(100) NOT NULL,
     partidas INT DEFAULT 0,
     cartoes_amarelo INT DEFAULT 0,
-    cartoes_vermelho INT DEFAULT 0
+    cartoes_vermelho INT DEFAULT 0,
+	CONSTRAINT fk_arbitro_pais FOREIGN KEY (id_pais) REFERENCES pais(id)
 
 );
 
@@ -194,7 +225,11 @@ CREATE TABLE partida(
     id_clube_visitante BIGINT NOT NULL,
     id_estadio BIGINT NOT NULL,
     id_arbitro BIGINT NOT NULL,
+    gols_clube_mandante INT,
+    gols_clube_visitante INT,
+    data_partida DATE,
     mando_campo_neutro BOOLEAN DEFAULT FALSE,
+    partida_realizada BOOLEAN DEFAULT FALSE,
     quantidade_torcedores INT,
     CONSTRAINT fk_partida_competicao_ano FOREIGN KEY (id_competicao_ano) REFERENCES competicao_ano(id),
     CONSTRAINT fk_partida_clube_mandante FOREIGN KEY (id_clube_mandante) REFERENCES clube(id),
